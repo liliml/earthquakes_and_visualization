@@ -11,9 +11,9 @@ let map = new mapboxgl.Map({
 // Below is step 5 in the lab
 async function geojsonFetch() { 
     // fetch geojson
-    let response, nationalparks, usstates, table;
-    response = await fetch('assets/National_Parks.geojson');
-    nationalparks = await response.json();
+    let response, nationalforests, usstates, table;
+    response = await fetch('assets/FS_National_Forests.geojson');
+    nationalforests = await response.json();
     response = await fetch('assets/us-states.json');
     usstates = await response.json();
 
@@ -36,15 +36,15 @@ async function geojsonFetch() {
             }
         });
     
-        map.addSource('nationalparks', {
+        map.addSource('nationalforests', {
             type: 'geojson',
-            data: nationalparks
+            data: nationalforests
         });
     
         map.addLayer({
-            'id': 'nationalparks-layer',
+            'id': 'nationalforests-layer',
             'type': 'circle',
-            'source': 'nationalparks',
+            'source': 'nationalforests',
             'paint': {
                 'circle-radius': 8,
                 'circle-stroke-width': 2,
@@ -53,7 +53,7 @@ async function geojsonFetch() {
             }
         });
     
-    
+
         
     
     });
@@ -61,15 +61,15 @@ async function geojsonFetch() {
     // step 7 in the lab
     table = document.getElementsByTagName("table")[0];
     let row, cell1, cell2, cell3;
-    for (let i = 0; i < nationalparks.features.length; i++) {
+    for (let i = 0; i < nationalforests.features.length; i++) {
         // Create an empty <tr> element and add it to the 1st position of the table:
         row = table.insertRow(-1);
         cell1 = row.insertCell(0);
         cell2 = row.insertCell(1);
         cell3 = row.insertCell(2);
-        cell1.innerHTML = nationalparks.features[i].properties.id;
-        cell2.innerHTML = nationalparks.features[i].properties.mag;
-        cell3.innerHTML = new Date(nationalparks.features[i].properties.time).toLocaleDateString(
+        cell1.innerHTML = nationalforests.features[i].properties.id;
+        cell2.innerHTML = nationalforests.features[i].properties.mag;
+        cell3.innerHTML = new Date(nationalforests.features[i].properties.time).toLocaleDateString(
             "en-US");
     }
     
