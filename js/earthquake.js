@@ -11,40 +11,40 @@ let map = new mapboxgl.Map({
 // Below is step 5 in the lab
 async function geojsonFetch() { 
     // fetch geojson
-    let response, earthquakes, japan, table;
-    response = await fetch('assets/earthquakes.geojson');
-    earthquakes = await response.json();
-    response = await fetch('assets/japan.json');
-    japan = await response.json();
+    let response, nationalparks, usstates, table;
+    response = await fetch('assets/National_Parks.geojson');
+    nationalparks = await response.json();
+    response = await fetch('assets/us-states.json');
+    usstates = await response.json();
 
 
     // Below is step 6 in the lab
     //load data to the map as new layers and table on the side.
     map.on('load', function loadingData() {
-        map.addSource('japan', {
+        map.addSource('usstates', {
             type: 'geojson',
-            data: japan
+            data: usstates
         });
     
         map.addLayer({
-            'id': 'japan-layer',
+            'id': 'usstates-layer',
             'type': 'fill',
-            'source': 'japan',
+            'source': 'usstates',
             'paint': {
-                'fill-color': '#0080ff', // blue color fill
+                'fill-color': '#A020F0', // purple color fill
                 'fill-opacity': 0.5
             }
         });
     
-        map.addSource('earthquakes', {
+        map.addSource('nationalparks', {
             type: 'geojson',
-            data: earthquakes
+            data: nationalparks
         });
     
         map.addLayer({
-            'id': 'earthquakes-layer',
+            'id': 'nationalparks-layer',
             'type': 'circle',
-            'source': 'earthquakes',
+            'source': 'nationalparks',
             'paint': {
                 'circle-radius': 8,
                 'circle-stroke-width': 2,
@@ -61,15 +61,15 @@ async function geojsonFetch() {
     // step 7 in the lab
     table = document.getElementsByTagName("table")[0];
     let row, cell1, cell2, cell3;
-    for (let i = 0; i < earthquakes.features.length; i++) {
+    for (let i = 0; i < nationalparks.features.length; i++) {
         // Create an empty <tr> element and add it to the 1st position of the table:
         row = table.insertRow(-1);
         cell1 = row.insertCell(0);
         cell2 = row.insertCell(1);
         cell3 = row.insertCell(2);
-        cell1.innerHTML = earthquakes.features[i].properties.id;
-        cell2.innerHTML = earthquakes.features[i].properties.mag;
-        cell3.innerHTML = new Date(earthquakes.features[i].properties.time).toLocaleDateString(
+        cell1.innerHTML = nationalparks.features[i].properties.id;
+        cell2.innerHTML = nationalparks.features[i].properties.mag;
+        cell3.innerHTML = new Date(nationalparks.features[i].properties.time).toLocaleDateString(
             "en-US");
     }
     
