@@ -48,10 +48,11 @@ async function geojsonFetch() {
             'type': 'circle',
             'source': 'nationalforests',
             'paint': {
-                'circle-radius': 8,
+                'circle-radius': 4,
                 'circle-stroke-width': 2,
-                'circle-color': 'red',
-                'circle-stroke-color': 'white'
+                'circle-color': 'green',
+                'circle-stroke-color': 'black',
+                'circle-opacity': 0.5
             }
         });
     
