@@ -11,11 +11,11 @@ let map = new mapboxgl.Map({
 // Below is step 5 in the lab
 async function geojsonFetch() { 
     // fetch geojson
-    let response, nationalforests, schools, usstates, table;
+    let response, nationalforests, capitals, usstates, table;
     response = await fetch('assets/FS_National_Forests.geojson');
     nationalforests = await response.json();
-    response = await fetch('assets/Public_School_Locations_2021-22.geojson');
-    schools = await response.json();
+    response = await fetch('assets/capitals.geojson');
+    capitals = await response.json();
     response = await fetch('assets/us-states.json');
     usstates = await response.json();
 
@@ -55,15 +55,15 @@ async function geojsonFetch() {
             }
         });
     
-        map.addSource('schools', {
+        map.addSource('capitals', {
             type: 'geojson',
-            data: schools
+            data: capitals
         });
     
         map.addLayer({
-            'id': 'schools-layer',
+            'id': 'capitals-layer',
             'type': 'circle',
-            'source': 'schools',
+            'source': 'capitals',
             'paint': {
                 'circle-radius': 8,
                 'circle-stroke-width': 2,
