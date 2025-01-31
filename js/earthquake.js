@@ -11,7 +11,7 @@ let map = new mapboxgl.Map({
 // Below is step 5 in the lab
 async function geojsonFetch() { 
     // fetch geojson
-    let response, nationalforests, capitals, usstates, table;
+    let response, nationalforests, capitals, usstates, table, tablecapital;
     response = await fetch('assets/FS_National_Forests.geojson');
     nationalforests = await response.json();
     response = await fetch('assets/capitals.geojson');
@@ -85,10 +85,10 @@ async function geojsonFetch() {
         cell1 = row.insertCell(0);
         cell2 = row.insertCell(1);
         cell3 = row.insertCell(2);
-        cell1.innerHTML = nationalforests.features[i].properties.id;
-        cell2.innerHTML = nationalforests.features[i].properties.mag;
-        cell3.innerHTML = new Date(nationalforests.features[i].properties.time).toLocaleDateString(
-            "en-US");
+        cell1.innerHTML = nationalforests.features[i].properties.OBJECTID;
+        cell2.innerHTML = nationalforests.features[i].properties.FORESTNAME;
+        // cell3.innerHTML = new Date(nationalforests.features[i].properties.time).toLocaleDateString(
+            // "en-US");
     }
     
     // step 8 in the lab
@@ -96,7 +96,25 @@ async function geojsonFetch() {
     
     btn.addEventListener('click', sortTable);
 
+    // for capitals of states table in section below
+    tablecapital = document.getElementsByTagName("table")[0];
+    let row, cell1, cell2, cell3;
+    for (let i = 0; i < capitals.features.length; i++) {
+        // Create an empty <tr> element and add it to the 1st position of the table:
+        row = table.insertRow(-1);
+        cell1 = row.insertCell(0);
+        cell2 = row.insertCell(1);
+        cell3 = row.insertCell(2);
+        cell1.innerHTML = capitals.features[i].properties.state;
+        cell2.innerHTML = capitals.features[i].properties.city;
+        // cell3.innerHTML = new Date(nationalforests.features[i].properties.time).toLocaleDateString(
+            // "en-US");
+    }
     
+    // step 8 in the lab
+    let btn = document.getElementsByTagName("button")[0];
+    
+    btn.addEventListener('click', sortTable);
 };
 
 // define the function to sort table
