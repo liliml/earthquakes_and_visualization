@@ -96,6 +96,8 @@ async function geojsonFetch() {
     
     btn.addEventListener('click', sortTable);
 
+
+    //second portion for testing, can remove this potentially for testing
     // for capitals of states table in section below
     tablecapital = document.getElementsByTagName("table")[0];
     let row, cell1, cell2, cell3;
