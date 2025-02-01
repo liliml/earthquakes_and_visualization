@@ -4,8 +4,8 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicm9zZS0xNjgiLCJhIjoiY202aWYxY3lsMDdxdjJpcHJoa
 let map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/navigation-night-v1', // style URL, is of navigation night
-    zoom: 5.5, // starting zoom
-    center: [138, 38] // starting center
+    zoom: 4.5, // starting zoom
+    center: [265, 38] // starting center
 });
 
 // Below is step 5 in the lab

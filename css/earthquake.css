@@ -85,4 +85,33 @@ tr:nth-child(even) {
       /* visibility: hidden; */
       /* background-image: none; */
   }
+
+
+  /* testing area */
+    /* Hide all links, except for the selected tab */
+    /* .topnav a:not(.active) {
+      display: none;
+    } */
+  
+    /* Show the icon that should open and close the topnav */
+    /* .topnav a.icon {
+      float: right;
+      display: block;
+    }
+    .topnav.responsive {
+      position: relative;
+    }
+  
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    } */
+
 }
