@@ -17,6 +17,9 @@ body {
 #side-panel {
     flex-basis: 500px;
     overflow-y: scroll;
+    /* background-color: purple; */
+    /* text-wrap: wrap; */
+    padding-left: 15px;
 }
 
 #map {
@@ -32,12 +35,15 @@ table {
     border-spacing: 0;
     width: 100%;
     border: 1px solid #ddd;
+    /* text-wrap: wrap; */
+    /* padding-left: 5px; */
 }
 
 th,
 td {
     text-align: left;
     padding: 16px;
+    /* text-wrap: wrap; */
 }
 
 tr:nth-child(even) {
@@ -72,49 +78,11 @@ tr:nth-child(even) {
 
 /* section below for media queries and is for when map applicatoin is smaller then 1024px and side panel disappears */
 /* When the screen is less than 1024 pixels wide */
-@media screen and (max-width: 1024px) {
-    /* Hide all links, except for the selected tab */
-    /* .topnav a:not(.active) { */
-      /* display: none; */
-    /* } */
-  
-    /* Show the icon that should open and close the topnav */
-    /* .topnav a.icon {
-      float: right;
-      display: block;
-    } */
-    
-    #container {
-        display: none;
-        /* visibility: hidden; */
-        /* background-image: none; */
-    }
-
-    /* body {
-        display: none;
-    } */
-
-    /* #map {
-        flex-grow: 1;
-    } */
+@media (max-width: 1024px) {
+  /* source for media queries and making rule above work: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries */
+  #side-panel {
+      display: none;
+      /* visibility: hidden; */
+      /* background-image: none; */
   }
-  
-  /* When the screen is less than 1024px pixels wide */
-  @media screen and (max-width: 1024px) {
-    /* .topnav.responsive {
-      position: relative;
-    }
-  
-    .topnav.responsive a.icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-  
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    } */
-  
-  }
+}

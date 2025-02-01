@@ -96,6 +96,7 @@ async function geojsonFetch() {
         cell3 = row.insertCell(2);
         cell1.innerHTML = nationalforests.features[i].properties.FORESTNAME;
         cell2.innerHTML = nationalforests.features[i].properties.OBJECTID;
+        cell3.innerHTML = nationalforests.features[i].geometry.coordinates;
         // cell3.innerHTML = new Date(nationalforests.features[i].properties.time).toLocaleDateString(
             // "en-US");
     }
