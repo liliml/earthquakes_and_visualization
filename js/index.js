@@ -69,19 +69,6 @@ async function geojsonFetch() {
                 'circle-stroke-color': 'white'
             }
         });
-
-        // map.addLayer({
-        //     'id': 'capitals-labels',
-        //     'type': 'symbol',
-        //     'source': 'capitals',
-        //     'paint': {
-        //         'symbol-placement':'point',
-        //         'text-anchor':'center',
-        //         'text-color':'white'
-        //         // 'text-fields'
-        //     }
-        // });
-        
     
     });
     
@@ -97,8 +84,6 @@ async function geojsonFetch() {
         cell1.innerHTML = nationalforests.features[i].properties.FORESTNAME;
         cell2.innerHTML = nationalforests.features[i].properties.OBJECTID;
         cell3.innerHTML = nationalforests.features[i].geometry.coordinates;
-        // cell3.innerHTML = new Date(nationalforests.features[i].properties.time).toLocaleDateString(
-            // "en-US");
     }
     
     // step 8 in the lab
@@ -106,14 +91,12 @@ async function geojsonFetch() {
     
     btn.addEventListener('click', sortTable);
 
-
 };
 
 // define the function to sort table
 function sortTable(e) {
     let table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementsByTagName("table")[0];
-    //FOR TESTING: console.log(table)
     switching = true;
     /*Make a loop that will continue until
     no switching has been done:*/
@@ -128,13 +111,8 @@ function sortTable(e) {
             shouldSwitch = false;
             /*Get the two elements you want to compare,
             one from current row and one from the next:*/
-            //ORIGINAL: x = parseFloat(rows[i].getElementsByTagName("td")[0].innerHTML);
-            //ORIGINAL: y = parseFloat(rows[i + 1].getElementsByTagName("td")[0].innerHTML);
             x = rows[i].getElementsByTagName("td")[0].innerHTML; //DO NOT NEED parseFloat here as it takes string and parses it into a float
             y = rows[i + 1].getElementsByTagName("td")[0].innerHTML; //0 is the table data index, aka the column number here, and we want first column aka index 0
-
-            //FOR TESTING: console.log(x);
-            //FOR TESTING: console.log(y);
 
             //check if the two rows should switch place:
             if (x.toLowerCase() > y.toLowerCase()) {
