@@ -2,44 +2,44 @@
 <html lang="en-US">
  <head>
     <meta charset="utf-8">
-    <title>State Capitals and National Forests</title>
+    <title>Earthquake List</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
-    <link rel="stylesheet" href="css/earthquake.css">
+    <link rel="stylesheet" href="css/index.css">
     <style>
     </style>
  </head>
  <body>
     <!-- Navigation bar -->
     <div class="topnav" id="myTopnav">
-        <!-- Link to other section -->
-        <a href="earthquake.html">State Capitals and National Forests</a>
-
         <!-- Active link pointing to the index.html page -->
         <a class="active" href="index.html">Japan Earthquakes (Provided Example)</a>
 
+        <!-- Links to other sections -->
+        <a href="earthquake.html">State Capitals and National Forests</a>
+        
         <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links on smaller screens -->
         <a href="javascript:void(0);" class="icon">
             <i class="fa fa-bars"></i>
         </a>
     </div>
+
     <main id="container">
         <div id="side-panel">
-            <h2>State Capitals and National Forests</h2>
-
-            <button>Sort by Forest Name (Alphabetical)</button>
+            <h2>Earthquake List</h2>
+           <button>Sort by Magnitude</button>
 
            <table>
                <tr>
-                   <th>Forest Name</th>
-                   <th>ID</th>
-                   <th>Forest Coordinates</th>
+                   <th>id</th>
+                   <th>magnitude</th>
+                   <th>timestamp</th>
                </tr>
            </table>
         </div>
         <div id="map"></div>
     </main>
-    <script src="js/earthquake.js"></script>   
+    <script src="js/index.js"></script>   
  </body>
 <html>    
